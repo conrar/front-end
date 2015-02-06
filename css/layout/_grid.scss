@@ -1,0 +1,159 @@
+/*___grid___*/
+
+*, 
+*:after, 
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// adjustable grid variables
+$baseline-grid-unit: 6px;
+$gutter-width: 30px;
+$number-of-padding-classes: 16;
+
+$include-proportional-column-classes: true;
+
+$include-standard-column-classes: false;
+$number-of-cols: 12;
+
+
+
+/* basic grid components */
+.grid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $screen-lg-min;
+  width: 90%;
+}
+
+.grid .row {
+  /* clearfix */
+  &:after, 
+  &:before {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/* basic column styling */
+[class*='col-'] {
+  float: left;
+  max-width: 100%;
+  padding-right: $gutter-width/2;
+  padding-left: $gutter-width/2;
+}
+
+// fluid col width
+$fluid-col-width: 100% / $number-of-cols;
+
+// standard column classes mixin
+@mixin column-styles($screen-size: "") {
+  @for $i from 1 through $number-of-cols {
+    .col-#{$screen-size}#{$i} {width: $fluid-col-width*$i;}
+  }
+  @for $j from 0 to $number-of-cols {
+    .offset-#{$screen-size}#{$j} {margin-left: $fluid-col-width*$j;}
+  }
+}
+
+// proportional column classes mixin
+@mixin proportional-columns($screen-size:"") {
+
+  .col-#{$screen-size}1-1 { width: 100%; }
+  .col-#{$screen-size}1-2 { width: 50%; }
+  .col-#{$screen-size}1-3 { width: percentage(1/3); }
+  .col-#{$screen-size}2-3 { width: percentage(2/3); }
+  .col-#{$screen-size}1-4 { width: 25%; }
+  .col-#{$screen-size}3-4 { width: 75%; }
+  .col-#{$screen-size}1-5 { width: 20%; }
+  .col-#{$screen-size}2-5 { width: 40%; }
+  .col-#{$screen-size}3-5 { width: 60%; }
+  .col-#{$screen-size}4-5 { width: 80%; }
+  .col-#{$screen-size}1-6 { width: percentage(1/6); }
+  .col-#{$screen-size}5-6 { width: percentage(5/6); }
+  .col-#{$screen-size}1-12 { width: percentage(1/12); }
+
+  .offset-#{$screen-size}0 { margin-left: 0%; }
+  .offset-#{$screen-size}1-2 { margin-left: 50%; }
+  .offset-#{$screen-size}1-3 { margin-left: percentage(1/3); }
+  .offset-#{$screen-size}2-3 { margin-left: percentage(2/3); }
+  .offset-#{$screen-size}1-4 { margin-left: 25%; }
+  .offset-#{$screen-size}3-4 { margin-left: 75%; }
+  .offset-#{$screen-size}1-5 { margin-left: 20%; }
+  .offset-#{$screen-size}2-5 { margin-left: 40%; }
+  .offset-#{$screen-size}3-5 { margin-left: 60%; }
+  .offset-#{$screen-size}4-5 { margin-left: 80%; }
+  .offset-#{$screen-size}1-6 { margin-left: percentage(1/6); }
+  .offset-#{$screen-size}5-6 { margin-left: percentage(5/6); }
+  .offset-#{$screen-size}1-12 { margin-left: percentage(1/12); }
+}
+
+
+@if $include-standard-column-classes{
+  /* base column classes */  
+  @include column-styles();
+
+  /* x-small screen column classes */
+  @media (max-width: $screen-sm-min) {
+    @include column-styles("xs-");
+  }
+
+  /* small+ screen column classes */
+  @media (min-width: $screen-sm-min) {
+    @include column-styles("sm-");
+  }
+
+  /* medium+ screen column classes */
+  @media (min-width: $screen-md-min) {
+    @include column-styles("md-");
+  }
+
+  /* large+ screen column classes */
+  @media (min-width: $screen-lg-min) {
+    @include column-styles("lg-");
+  }
+}
+
+
+// proportional column classes (if turned on)
+@if $include-proportional-column-classes{
+   /* base column classes */  
+  @include proportional-columns();
+
+  /* x-small screen column classes */
+  @media (max-width: $screen-sm-min) {
+    @include proportional-columns("xs-");
+  }
+
+  /* small+ screen column classes */
+  @media (min-width: $screen-sm-min) {
+    @include proportional-columns("sm-");
+  }
+
+  /* medium+ screen column classes */
+  @media (min-width: $screen-md-min) {
+    @include proportional-columns("md-");
+  }
+
+  /* large+ screen column classes */
+  @media (min-width: $screen-lg-min) {
+    @include proportional-columns("lg-");
+  }
+}
+
+/* extra padding classes */
+@for $i from 0 through $number-of-padding-classes {
+  .pt#{$i} {padding-top: $baseline-grid-unit*$i;}
+  .pb#{$i} {padding-bottom: $baseline-grid-unit*$i;}
+  .ptb#{$i} {padding-top: $baseline-grid-unit*$i; padding-bottom: $baseline-grid-unit*$i;}
+  .pr#{$i} {padding-right: $baseline-grid-unit*$i;}
+  .pl#{$i} {padding-left: $baseline-grid-unit*$i;}
+  .prl#{$i} {padding-right: $baseline-grid-unit*$i; padding-left: $baseline-grid-unit*$i;}
+}
