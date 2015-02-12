@@ -29,7 +29,7 @@ $number-of-cols: 12;
   width: 90%;
 }
 
-.grid .row {
+.row {
   /* clearfix */
   &:after, 
   &:before {

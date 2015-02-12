@@ -1,7 +1,22 @@
 /*___typography___*/
 
-h1, h2, h3, h4, h5, h6 {
+*{
+  -webkit-font-smoothing: antialiased;
+}
 
+p{
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: $font-stack;
+  margin: 0;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  font-family: $font-stack;
+  outline: 0;
+  margin: 0;
 }
 
 h1 { 
@@ -38,11 +53,6 @@ h6 {
   // font-size: 1.5rem;
   // line-height: 1.6;
   // letter-spacing: 0; 
-}
-
-p{
-  // font-size: 15px;
-  // line-height: 1.6;
 }
 
 @media (min-width: $screen-sm-min) {

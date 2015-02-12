@@ -16,12 +16,12 @@
   max-width: 1200px;
   width: 90%; }
 
-.grid .row {
+.row {
   /* clearfix */ }
-  .grid .row:after, .grid .row:before {
+  .row:after, .row:before {
     content: "";
     display: table; }
-  .grid .row:after {
+  .row:after {
     clear: both; }
 
 /* basic column styling */
@@ -768,16 +768,37 @@
   padding-left: 96px; }
 
 /*___typography___*/
+* {
+  -webkit-font-smoothing: antialiased; }
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: "roboto", "helvetica neue" helvetica, arial, sans-serif;
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  font-family: "roboto", "helvetica neue" helvetica, arial, sans-serif;
+  outline: 0;
+  margin: 0; }
+
+.hide {
+  display: none; }
+
 /*___buttons___*/
 .button,
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border-radius: 3px;
+  background-color: #dfe5e8;
+  border-radius: 2px;
   border: 0 none;
+  color: #244c60;
   cursor: pointer;
   display: inline-block;
+  font-family: "roboto", "helvetica neue" helvetica, arial, sans-serif;
   font-weight: 700;
   height: 36px;
   line-height: 36px;
@@ -792,11 +813,6 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap; }
 
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
 .button:focus,
 button:focus,
 input[type="submit"]:focus,
@@ -804,4 +820,44 @@ input[type="reset"]:focus,
 input[type="button"]:focus {
   outline: 0; }
 
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  color: #244c60;
+  background-color: #d6dde1; }
+
+/* pop button styling */
+.button.pop,
+button.pop,
+input[type="submit"].pop,
+input[type="reset"].pop,
+input[type="button"].pop {
+  color: #FFF;
+  background-color: #1cc0b2; }
+
+.button.pop:hover,
+button.pop:hover,
+input[type="submit"].pop:hover,
+input[type="reset"].pop:hover,
+input[type="button"].pop:hover {
+  color: #FFF;
+  background-color: #1db6ab; }
+
 /* primary button styling */
+.button.primary,
+button.primary,
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary {
+  color: #FFF;
+  background-color: #244c60; }
+
+.button.primary:hover,
+button.primary:hover,
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover {
+  color: #FFF;
+  background-color: #214455; }

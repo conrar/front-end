@@ -5,13 +5,13 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"]{
-  // background-color: #e0e0e0;
-  border-radius: 3px;
+  background-color: #dfe5e8;
+  border-radius: 2px;
   border: 0 none;
-  // color: #595959;
+  color: #244c60;
   cursor: pointer;
   display: inline-block;
-  // font-family: ;
+  font-family: $font-stack;
   // font-size: 13px;
   font-weight: 700;
   height: 36px;
@@ -29,20 +29,40 @@ input[type="submit"]{
   white-space: nowrap;
 }
 
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
 .button:focus,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
-input[type="button"]:focus {
-  // color: #333;
-  // background-color: #000;
-  // border-color: #888;
+input[type="button"]:focus{
   outline: 0;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  color: #244c60;
+  background-color: #d6dde1;
+}
+
+/* pop button styling */
+.button.pop,
+button.pop,
+input[type="submit"].pop,
+input[type="reset"].pop,
+input[type="button"].pop {
+  color: #FFF;
+  background-color: #1cc0b2;
+}
+
+.button.pop:hover,
+button.pop:hover,
+input[type="submit"].pop:hover,
+input[type="reset"].pop:hover,
+input[type="button"].pop:hover {
+  color: #FFF;
+  background-color: #1db6ab;
 }
 
 /* primary button styling */
@@ -51,22 +71,15 @@ button.primary,
 input[type="submit"].primary,
 input[type="reset"].primary,
 input[type="button"].primary {
-  // color: #FFF;
-  // background-color: #33C3F0;
-  // border-color: #33C3F0; 
+  color: #FFF;
+  background-color: #244c60;
 }
 
 .button.primary:hover,
 button.primary:hover,
 input[type="submit"].primary:hover,
 input[type="reset"].primary:hover,
-input[type="button"].primary:hover,
-.button.primary:focus,
-button.primary:focus,
-input[type="submit"].primary:focus,
-input[type="reset"].primary:focus,
-input[type="button"].primary:focus {
-  // color: #FFF;
-  // background-color: #1EAEDB;
-  // border-color: #1EAEDB; 
+input[type="button"].primary:hover {
+  color: #FFF;
+  background-color: #214455;
 }
